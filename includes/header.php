@@ -7,9 +7,11 @@
                     Wert davon mit Hilfe von echo aus (String
                     Template mit dem Ersten Wort 'Hello').
                 */ 
-
+$people = "Coders";
+echo "Hello $people";
 
                 // Aufforderung
+                echo " - Have a nice Day!";
 
             ?>
         </div>
