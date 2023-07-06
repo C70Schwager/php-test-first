@@ -28,8 +28,7 @@
           Gib den Wert von 'title' in die Seite aus (fett hervorgehoben).
         */
         $title = "Bitte fülle die Felder oder wähle aus";
-        echo "<strong>$title</strong>;
-        
+        echo "<strong>$title</strong>";
     ?>
 </p>
 
@@ -40,12 +39,26 @@
     <label for="email">Email:</label>
     <input type="text" id="email" name="email"><br>
 
-    <p>&nbsp;</p><!-- Separator -->
-    <p>Geht es dir heute gut?</p>
-    <input type="radio" id="ja" name="radio-mood" value="ja">
-    <label for="ja">Ja</label><br>
-    <input type="radio" id="nein" name="radio-mood" value="nein">
-    <label for="nein">Nein</label><br><br>
+<?php
+
+
+  function yesNoQuestion($quid, $questionText, $answers, $correctAnswerIndex) {
+    echo "<p>&nbsp;</p>
+        <p>$questionText</p>
+        <input type='radio' id='r-$quid-0' name='radio-$quid' value=$answers[0]'>
+        <label for='r-$quid-0'>$ansers[0]</label><br>
+        <input type='radio' id='r-$quid-1' name= radio-'$quid' value='$answers[1]'>
+        <label for='r-$quid-1'>$answers[1]</label><br><br>";
+
+        echo "<input type='hidden' name= 'correctAnswerIndex' value='$correctAnswerIndex'>";
+  }
+
+
+      $quid = "01";
+      $questionText = "Geht es dir heute gut?";
+      $answers = array("ja", "nein");
+      $correctAnswerIndex = 1:
+?>
 
     <p>&nbsp;</p><!-- Separator -->
     <p>Welche Farben hat die Schweizer Fahne?</p>
@@ -77,9 +90,10 @@
           Single-Quotes arbeiten.
         */
         $mammals = array("Rind", "Pferd", "Ziege", "Mensch");
-        $i = 0;$lenght = count($mammals)
+        $i = 0;
+        $length = count($mammals); // length
 
-        while ($i < $lenght) {
+        while ($i < $length) {
           $mammal = $mammals[$i];
           echo "<option>$mammal</option>";
 
